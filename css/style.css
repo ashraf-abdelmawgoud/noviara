@@ -1096,6 +1096,10 @@ ul, ol {
     font-size: 0.62rem;
     letter-spacing: 1px;
   }
+  .core-center-node .core-logo-icon {
+    width: 42px;
+    height: 42px;
+  }
   .tag-ai {
     top: 6%;
     right: 5%;
@@ -1174,6 +1178,19 @@ ul, ol {
   letter-spacing: 1.5px;
   color: var(--green-neon);
   font-family: var(--font-mono);
+}
+
+.core-center-node .core-logo-icon {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 12px rgba(0, 255, 168, 0.75));
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+.core-center-node:hover .core-logo-icon {
+  transform: scale(1.08);
 }
 
 /* Floating AI Badges around the core */
@@ -2164,7 +2181,7 @@ ul, ol {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   gap: 50px;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 @media (max-width: 1024px) {
@@ -2188,6 +2205,99 @@ ul, ol {
   .consultation-form-card {
     padding: 28px 20px;
   }
+}
+
+/* Minimalist Centered Layout (Model 3) */
+.consultation-minimal-wrap {
+  max-width: 640px;
+  margin: 0 auto 40px;
+  width: 100%;
+}
+
+.consultation-minimal-card {
+  background: rgba(8, 20, 14, 0.78);
+  border: 1px solid rgba(0, 255, 135, 0.22);
+  border-radius: 24px;
+  padding: 38px 34px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(0, 255, 135, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: relative;
+}
+
+@media (max-width: 600px) {
+  .consultation-minimal-card {
+    padding: 26px 18px;
+    border-radius: 20px;
+  }
+}
+
+.form-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-row-2col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 580px) {
+  .form-row-2col {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+/* Horizontal 3-column Metrics Strip */
+.wide-metrics-bar {
+  max-width: 860px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .wide-metrics-bar {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+}
+
+.metric-strip-card {
+  background: rgba(10, 24, 18, 0.65);
+  border: 1px solid rgba(0, 255, 135, 0.16);
+  border-radius: 16px;
+  padding: 22px 18px;
+  text-align: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.metric-strip-card:hover {
+  border-color: #00ff87;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0, 255, 135, 0.15);
+}
+
+.metric-strip-num {
+  font-size: 1.65rem;
+  font-weight: 900;
+  color: #00ff87;
+  font-family: var(--font-outfit, 'Outfit', sans-serif);
+  margin-bottom: 5px;
+  display: block;
+  letter-spacing: -0.5px;
+}
+
+.metric-strip-label {
+  font-size: 0.84rem;
+  color: #cbd5e1;
+  line-height: 1.45;
+  display: block;
 }
 
 .form-grid {
@@ -2362,67 +2472,252 @@ textarea.form-control {
   margin-bottom: 32px;
 }
 
-/* Consultation Visual Column (Section 16) */
+/* Consultation Visual Column (Section 16: Trust & ROI Shield) */
 .consultation-info-col {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  height: 100%;
 }
 
-.consultation-visual-canvas-card {
+.trust-shield-card {
   background: var(--bg-card);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-xl);
-  padding: 36px 30px;
+  padding: 34px 28px;
   position: relative;
   overflow: hidden;
   box-shadow: var(--shadow-card);
-}
-
-.consultation-graphic-svg {
-  width: 100%;
-  height: 230px;
-  margin-bottom: 24px;
-}
-
-.info-perks-list {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 18px;
+  height: 100%;
 }
 
-.info-perk-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-}
-
-.info-perk-icon {
-  width: 36px;
-  height: 36px;
+.trust-shield-card::after {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 140px;
+  height: 140px;
+  background: rgba(0, 255, 135, 0.12);
+  filter: blur(45px);
   border-radius: 50%;
-  background: rgba(0, 255, 135, 0.1);
-  border: 1px solid rgba(0, 255, 135, 0.25);
+  pointer-events: none;
+}
+[dir="ltr"] .trust-shield-card::after {
+  left: auto;
+  right: -50px;
+}
+
+.trust-top-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.shield-icon-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(0, 255, 135, 0.2) 0%, rgba(16, 185, 129, 0.05) 100%);
+  border: 1.5px solid rgba(0, 255, 135, 0.45);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--green-neon);
+  font-size: 1.5rem;
+  box-shadow: 0 0 16px rgba(0, 255, 135, 0.2);
   flex-shrink: 0;
-  margin-top: 2px;
 }
 
-.info-perk-text h4 {
-  font-size: 1.05rem;
+.trust-head-text h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+}
+
+.trust-head-text p {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 3 Metrics Highlights */
+.metrics-highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+@media (max-width: 480px) {
+  .metrics-highlight-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.metric-highlight-card {
+  background: rgba(12, 28, 20, 0.65);
+  border: 1px solid rgba(0, 255, 135, 0.18);
+  border-radius: 12px;
+  padding: 12px 8px;
+  text-align: center;
+  transition: all 0.25s ease;
+}
+
+.metric-highlight-card:hover {
+  border-color: var(--green-neon);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 255, 135, 0.12);
+}
+
+.metric-num {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: var(--green-neon);
+  font-family: var(--font-outfit, 'Outfit', sans-serif);
+  margin-bottom: 4px;
+  display: block;
+}
+
+.metric-label {
+  font-size: 0.74rem;
+  color: #cbd5e1;
+  line-height: 1.35;
+  display: block;
+  font-weight: 500;
+}
+
+/* Deliverables Box */
+.deliverables-box {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 16px 18px;
+}
+
+.deliverables-title {
+  font-size: 0.88rem;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 4px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.info-perk-text p {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
+.deliverables-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
+
+.deliverable-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.84rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+.deliverable-check {
+  color: var(--green-neon);
+  font-weight: 800;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+/* Trust Guarantee Note */
+.trust-footer-note {
+  font-size: 0.8rem;
+  color: #a7f3d0;
+  background: rgba(0, 255, 135, 0.06);
+  border-right: 3px solid var(--green-neon);
+  padding: 10px 14px;
+  border-radius: 4px 10px 10px 4px;
+  line-height: 1.5;
+}
+[dir="ltr"] .trust-footer-note {
+  border-right: none;
+  border-left: 3px solid var(--green-neon);
+  border-radius: 10px 4px 4px 10px;
+}
+
+/* Direct Email Strip */
+.trust-direct-email {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  padding: 12px 16px;
+  background: rgba(16, 185, 129, 0.05);
+  border: 1px solid rgba(0, 255, 135, 0.25);
+  border-radius: 12px;
+  transition: all 0.25s ease;
+}
+
+.trust-direct-email:hover {
+  border-color: var(--green-neon);
+  background: rgba(16, 185, 129, 0.09);
+  box-shadow: 0 4px 16px rgba(0, 255, 135, 0.1);
+}
+
+.trust-email-icon {
+  font-size: 1.1rem;
+  color: var(--green-neon);
+  flex-shrink: 0;
+}
+
+.trust-direct-email a {
+  color: var(--green-neon);
+  font-family: var(--font-mono, monospace);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.trust-direct-email a:hover {
+  text-decoration: underline;
+}
+
+/* Form Trust Badges (Below Submit Button) */
+.form-trust-badges {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
+}
+
+.trust-micro-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.trust-micro-icon {
+  font-size: 0.95rem;
+  color: var(--green-neon);
+}
+
 
 
 /* --- Footer (Section 21) --- */
