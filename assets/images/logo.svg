@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 200" width="620" height="200">
+  <defs>
+    <!-- Fonts -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@800&amp;display=swap');
+      .brand-title {
+        font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-weight: 800;
+        font-size: 90px;
+        letter-spacing: -0.5px;
+      }
+    </style>
+
+    <!-- Outer Badge Glow Filter -->
+    <filter id="full-badge-glow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#00ffa8" flood-opacity="0.75"/>
+    </filter>
+
+    <!-- Green Node Glow Filter -->
+    <filter id="full-node-glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#00ffa8" flood-opacity="0.9"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#ffffff" flood-opacity="0.6"/>
+    </filter>
+
+    <!-- White Center Node Glow Filter -->
+    <filter id="full-white-node-glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#ffffff" flood-opacity="0.85"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="12" flood-color="#00ffa8" flood-opacity="0.5"/>
+    </filter>
+
+    <!-- Green Glowing Orb Gradient -->
+    <radialGradient id="full-green-orb-grad" cx="38%" cy="38%" r="62%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="25%" stop-color="#a8ffdf"/>
+      <stop offset="60%" stop-color="#00ffa8"/>
+      <stop offset="100%" stop-color="#00cc7a"/>
+    </radialGradient>
+
+    <!-- Badge Background Radial -->
+    <radialGradient id="full-badge-bg-grad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#061910"/>
+      <stop offset="60%" stop-color="#030c07"/>
+      <stop offset="100%" stop-color="#020604"/>
+    </radialGradient>
+
+    <!-- Stroke Gradient with userSpaceOnUse to guarantee vertical lines always render -->
+    <linearGradient id="full-stroke-grad" gradientUnits="userSpaceOnUse" x1="50" y1="50" x2="150" y2="150">
+      <stop offset="0%" stop-color="#00ffa8"/>
+      <stop offset="50%" stop-color="#00f299"/>
+      <stop offset="100%" stop-color="#00d680"/>
+    </linearGradient>
+
+    <!-- Wordmark Horizontal Gradient -->
+    <linearGradient id="noviara-wordmark-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="28%" stop-color="#ebfff8"/>
+      <stop offset="58%" stop-color="#69f8be"/>
+      <stop offset="85%" stop-color="#00ffa8"/>
+      <stop offset="100%" stop-color="#00ff87"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 1. ICON BADGE (x: 10..186) -->
+  <g transform="translate(0, 0)">
+    <!-- Background Squircle Badge -->
+    <rect x="12" y="12" width="176" height="176" rx="52" fill="url(#full-badge-bg-grad)" stroke="#00ffa8" stroke-width="4.5" filter="url(#full-badge-glow)"/>
+
+    <!-- Left Vertical Line (BL to TL) - Solid Fallback & Gradient -->
+    <line x1="56" y1="144" x2="56" y2="54" stroke="#00ffa8" stroke-width="13" stroke-linecap="round"/>
+    <line x1="56" y1="144" x2="56" y2="54" stroke="url(#full-stroke-grad)" stroke-width="13" stroke-linecap="round"/>
+
+    <!-- Continuous Main 'N' Trace (BL -> TL -> White Center -> Curve -> TR) -->
+    <path d="M 56 144 L 56 54 L 104 96 L 131 120 Q 144 130 144 114 L 144 56" fill="none" stroke="url(#full-stroke-grad)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Lower Parallel Trace (starts below white node, goes diagonal, then bends to BR) -->
+    <path d="M 79 106 L 121 144 Q 133 150 148 150" fill="none" stroke="url(#full-stroke-grad)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- 4 Glowing Green Nodes -->
+    <circle cx="56" cy="54" r="15" fill="url(#full-green-orb-grad)" filter="url(#full-node-glow)"/>
+    <circle cx="56" cy="144" r="15" fill="url(#full-green-orb-grad)" filter="url(#full-node-glow)"/>
+    <circle cx="144" cy="56" r="15" fill="url(#full-green-orb-grad)" filter="url(#full-node-glow)"/>
+    <circle cx="148" cy="150" r="15" fill="url(#full-green-orb-grad)" filter="url(#full-node-glow)"/>
+
+    <!-- Central White Node -->
+    <circle cx="104" cy="96" r="13.5" fill="#ffffff" filter="url(#full-white-node-glow)"/>
+  </g>
+
+  <!-- 2. WORDMARK "Noviara" (No dev) -->
+  <text x="218" y="133" class="brand-title" fill="url(#noviara-wordmark-grad)">Noviara</text>
+</svg>

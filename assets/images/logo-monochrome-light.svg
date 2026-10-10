@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 200" width="620" height="200">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@800&amp;display=swap');
+      .brand-title-white {
+        font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-weight: 800;
+        font-size: 90px;
+        letter-spacing: -0.5px;
+        fill: #ffffff;
+      }
+    </style>
+  </defs>
+
+  <!-- Clean Vector Print Badge (Solid White) -->
+  <g transform="translate(0, 0)">
+    <!-- Squircle Badge Outline -->
+    <rect x="14" y="14" width="172" height="172" rx="48" fill="none" stroke="#ffffff" stroke-width="6"/>
+
+    <!-- Circuit Trace Lines -->
+    <line x1="56" y1="144" x2="56" y2="54" stroke="#ffffff" stroke-width="14" stroke-linecap="round"/>
+    <path d="M 56 144 L 56 54 L 104 96 L 131 120 Q 144 130 144 114 L 144 56" fill="none" stroke="#ffffff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 79 106 L 121 144 Q 133 150 148 150" fill="none" stroke="#ffffff" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- 4 Solid Nodes -->
+    <circle cx="56" cy="54" r="14" fill="#ffffff"/>
+    <circle cx="56" cy="144" r="14" fill="#ffffff"/>
+    <circle cx="144" cy="56" r="14" fill="#ffffff"/>
+    <circle cx="148" cy="150" r="14" fill="#ffffff"/>
+
+    <!-- Center Contrast Node (Hollow Core) -->
+    <circle cx="104" cy="96" r="13" fill="#040706" stroke="#ffffff" stroke-width="5"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="218" y="133" class="brand-title-white">Noviara</text>
+</svg>

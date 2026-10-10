@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <!-- Outer Badge Glow Filter -->
+    <filter id="badge-glow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#00ffa8" flood-opacity="0.75"/>
+    </filter>
+
+    <!-- Green Node Glow Filter -->
+    <filter id="node-glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#00ffa8" flood-opacity="0.9"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#ffffff" flood-opacity="0.6"/>
+    </filter>
+
+    <!-- White Center Node Glow Filter -->
+    <filter id="white-node-glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#ffffff" flood-opacity="0.85"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="12" flood-color="#00ffa8" flood-opacity="0.5"/>
+    </filter>
+
+    <!-- Green Glowing Orb Gradient -->
+    <radialGradient id="green-orb-grad" cx="38%" cy="38%" r="62%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="25%" stop-color="#a8ffdf"/>
+      <stop offset="60%" stop-color="#00ffa8"/>
+      <stop offset="100%" stop-color="#00cc7a"/>
+    </radialGradient>
+
+    <!-- Badge Background Radial -->
+    <radialGradient id="badge-bg-grad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#061910"/>
+      <stop offset="60%" stop-color="#030c07"/>
+      <stop offset="100%" stop-color="#020604"/>
+    </radialGradient>
+
+    <!-- Stroke Gradient with userSpaceOnUse to guarantee vertical lines always render -->
+    <linearGradient id="stroke-grad" gradientUnits="userSpaceOnUse" x1="50" y1="50" x2="150" y2="150">
+      <stop offset="0%" stop-color="#00ffa8"/>
+      <stop offset="50%" stop-color="#00f299"/>
+      <stop offset="100%" stop-color="#00d680"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Squircle Badge -->
+  <rect x="12" y="12" width="176" height="176" rx="52" fill="url(#badge-bg-grad)" stroke="#00ffa8" stroke-width="4.5" filter="url(#badge-glow)"/>
+
+  <!-- Left Vertical Line (BL to TL) with explicit solid fallback and userSpaceOnUse gradient -->
+  <line x1="56" y1="144" x2="56" y2="54" stroke="#00ffa8" stroke-width="13" stroke-linecap="round"/>
+  <line x1="56" y1="144" x2="56" y2="54" stroke="url(#stroke-grad)" stroke-width="13" stroke-linecap="round"/>
+
+  <!-- Continuous Main 'N' Trace (BL -> TL -> White Center -> Curve -> TR) -->
+  <path d="M 56 144 L 56 54 L 104 96 L 131 120 Q 144 130 144 114 L 144 56" fill="none" stroke="url(#stroke-grad)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Lower Parallel Trace (starts below white node, goes diagonal, then bends to BR) -->
+  <path d="M 79 106 L 121 144 Q 133 150 148 150" fill="none" stroke="url(#stroke-grad)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- 4 Glowing Green Nodes -->
+  <!-- Top-Left -->
+  <circle cx="56" cy="54" r="15" fill="url(#green-orb-grad)" filter="url(#node-glow)"/>
+
+  <!-- Bottom-Left -->
+  <circle cx="56" cy="144" r="15" fill="url(#green-orb-grad)" filter="url(#node-glow)"/>
+
+  <!-- Top-Right -->
+  <circle cx="144" cy="56" r="15" fill="url(#green-orb-grad)" filter="url(#node-glow)"/>
+
+  <!-- Bottom-Right -->
+  <circle cx="148" cy="150" r="15" fill="url(#green-orb-grad)" filter="url(#node-glow)"/>
+
+  <!-- Central White Node -->
+  <circle cx="104" cy="96" r="13.5" fill="#ffffff" filter="url(#white-node-glow)"/>
+</svg>

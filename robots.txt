@@ -1,0 +1,5 @@
+# robots.txt for https://noviara.dev/
+User-agent: *
+Allow: /
+
+Sitemap: https://noviara.dev/sitemap.xml
